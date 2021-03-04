@@ -1,23 +1,23 @@
 part of algolia;
 
 class AlgoliaObjectReference {
-  AlgoliaObjectReference._(this.algolia, String index, String objectId)
+  AlgoliaObjectReference._(this.algolia, String? index, String? objectId)
       : _index = index,
         _objectId = objectId,
         assert(algolia != null);
 
   final Algolia algolia;
-  final String _index;
-  final String _objectId;
+  final String? _index;
+  final String? _objectId;
 
-  String get index => _index;
+  String? get index => _index;
 
-  String get objectID => _objectId;
+  String? get objectID => _objectId;
 
   /// Get the object referred to by this [AlgoliaObjectReference].
   ///
   /// If the object does not yet exist, it will be created.
-  Future<AlgoliaObjectSnapshot> getObject() async {
+  Future getObject() async {
     assert(_objectId != null, 'You can\'t get an object without an objectID.');
     try {
       String url = '${algolia._host}indexes/$_index/$_objectId';
@@ -35,7 +35,7 @@ class AlgoliaObjectReference {
   /// Writes to the object referred to by this [AlgoliaObjectReference].
   ///
   /// If the object does not yet exist, it will be created.
-  Future<AlgoliaTask> setData(Map<String, dynamic> data) async {
+  Future setData(Map<String, dynamic> data) async {
     try {
       assert(_index != null && _index != '*' && _index != '',
           'IndexName is required, but it has `*` multiple flag or `null`.');
@@ -64,7 +64,7 @@ class AlgoliaObjectReference {
   /// Values in [data] may be of any supported Algolia type.
   ///
   /// If no object exists yet, the update will fail.
-  Future<AlgoliaTask> updateData(Map<String, dynamic> data) async {
+  Future updateData(Map<String, dynamic> data) async {
     try {
       assert(_index != null && _index != '*' && _index != '',
           'IndexName is required, but it has `*` multiple flag or `null`.');
@@ -102,7 +102,7 @@ class AlgoliaObjectReference {
   ///      object, assuming an empty object as the basis. When false, a partial
   ///      update on a nonexistent object will be ignored.
   ///
-  Future<AlgoliaTask> partialUpdateObject(Map<String, dynamic> data,
+  Future partialUpdateObject(Map<String, dynamic> data,
       {bool createIfNotExists = true}) async {
     assert(_objectId != null || createIfNotExists,
         'You can\'t partialUpdateObject when createIfNotExists=false and data without an objectID.');
@@ -131,7 +131,7 @@ class AlgoliaObjectReference {
   /// Delete the object referred to by this [AlgoliaObjectReference].
   ///
   /// If no object exists yet, the update will fail.
-  Future<AlgoliaTask> deleteObject() async {
+  Future deleteObject() async {
     assert(
         _objectId != null, 'You can\'t delete an object without an objectID.');
     try {

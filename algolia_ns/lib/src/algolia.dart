@@ -2,8 +2,8 @@ part of algolia;
 
 class Algolia {
   const Algolia.init({
-    @required String applicationId,
-    @required String apiKey,
+    required String applicationId,
+    required String apiKey,
     this.extraHeaders = const {},
   })  : assert(applicationId != null, 'Application ID is required.'),
         assert(apiKey != null, 'API Key is required.'),
@@ -11,8 +11,8 @@ class Algolia {
         _apiKey = apiKey;
 
   const Algolia._({
-    @required String applicationId,
-    @required String apiKey,
+    required String applicationId,
+    required String apiKey,
     this.extraHeaders = const {},
   })  : assert(applicationId != null, 'Application ID is required.'),
         assert(apiKey != null, 'API Key is required.'),
@@ -59,7 +59,7 @@ class Algolia {
   AlgoliaMultiIndexesReference get multipleQueries =>
       AlgoliaMultiIndexesReference._(this);
 
-  Future<AlgoliaIndexesSnapshot> getIndices() async {
+  Future getIndices() async {
     try {
       String _url = '${this._host}indexes';
       Response response = await get(

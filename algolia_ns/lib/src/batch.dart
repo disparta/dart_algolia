@@ -39,7 +39,7 @@ class AlgoliaBatch {
   AlgoliaBatch._(
     this.algolia,
     String index, {
-    List<AlgoliaBatchRequest> actions,
+    List<AlgoliaBatchRequest>? actions,
   })  : _actions = actions ?? <AlgoliaBatchRequest>[],
         _index = index;
   Algolia algolia;
@@ -207,8 +207,8 @@ class AlgoliaBatch {
 /// Batch list element wrapper class [AlgoliaBatchRequest] for commit.
 class AlgoliaBatchRequest {
   AlgoliaBatchRequest({
-    @required this.action,
-    @required this.body,
+    required this.action,
+    required this.body,
   });
 
   String action;

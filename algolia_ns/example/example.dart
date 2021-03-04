@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:algolia/algolia.dart';
 
 void main() async {
@@ -49,7 +50,8 @@ void main() async {
   ///
   /// 3. Perform Updating Object to existing Index.
   ///
-  Map<String, dynamic> updateData = Map<String, dynamic>.from(addedObject.data);
+  Map<String, dynamic> updateData =
+      Map<String, dynamic>.from(addedObject.data!);
   updateData['contact'] = '+1 609 567890';
   updateData['modifiedAt'] = DateTime.now();
   taskUpdated = await algolia.instance
@@ -143,7 +145,7 @@ void main() async {
   AlgoliaIndexSettings settingsRef = algolia.instance.index('contact').settings;
 
   // Get Settings
-  Map<String, dynamic> currentSettings = await settingsRef.getSettings();
+  Map<String, dynamic>? currentSettings = await settingsRef.getSettings();
 
   // Checking if has [Map]
   print('\n\n');

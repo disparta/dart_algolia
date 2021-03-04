@@ -11,19 +11,19 @@ class AlgoliaIndexSettings extends AlgoliaSettings {
   const AlgoliaIndexSettings._(
     Algolia algolia,
     String indexName, {
-    Map<String, dynamic> parameters,
+    Map<String, dynamic>? parameters,
   })  : assert(indexName != null && indexName != '*',
             'Index Name is required, but was found: $indexName'),
         super._(algolia, indexName);
 
-  Future<Map<String, dynamic>> getSettings() async {
+  Future getSettings() async {
     try {
       String url = '${algolia._host}indexes/$_index/settings';
       Response response = await get(
         Uri.parse(url),
         headers: algolia._header,
       );
-      Map<String, dynamic> body = json.decode(response.body);
+      Map<String, dynamic>? body = json.decode(response.body);
       return body;
     } catch (err) {
       return err;
@@ -35,7 +35,7 @@ class AlgoliaSettings {
   const AlgoliaSettings._(
     this.algolia,
     String indexName, {
-    final Map<String, dynamic> parameters,
+    final Map<String, dynamic>? parameters,
   })  : assert(indexName != null && indexName != '*',
             'Index Name is required, but was found: $indexName'),
         this._index = indexName,
@@ -55,7 +55,7 @@ class AlgoliaSettings {
     );
   }
 
-  Future<AlgoliaTask> setSettings() async {
+  Future setSettings() async {
     try {
       assert(
           _parameters.keys.isNotEmpty, 'No setting parameter to update found.');

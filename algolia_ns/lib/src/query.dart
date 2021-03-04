@@ -12,9 +12,9 @@ enum AlgoliaSortFacetValuesBy {
 ///
 class AlgoliaQuery {
   AlgoliaQuery._(
-      {@required this.algolia,
-      @required String index,
-      Map<String, dynamic> parameters})
+      {required this.algolia,
+      required String index,
+      Map<String, dynamic>? parameters})
       : _index = index,
         _parameters = parameters ??
             Map<String, dynamic>.unmodifiable(<String, dynamic>{
@@ -1002,10 +1002,10 @@ class AlgoliaQuery {
 
 class BoundingBox {
   BoundingBox({
-    @required this.p1Lat,
-    @required this.p1Lng,
-    @required this.p2Lat,
-    @required this.p2Lng,
+    required this.p1Lat,
+    required this.p1Lng,
+    required this.p2Lat,
+    required this.p2Lng,
   });
 
   num p1Lat;
@@ -1016,12 +1016,12 @@ class BoundingBox {
 
 class BoundingPolygonBox {
   BoundingPolygonBox({
-    @required this.p1Lat,
-    @required this.p1Lng,
-    @required this.p2Lat,
-    @required this.p2Lng,
-    @required this.p3Lat,
-    @required this.p3Lng,
+    required this.p1Lat,
+    required this.p1Lng,
+    required this.p2Lat,
+    required this.p2Lng,
+    required this.p3Lat,
+    required this.p3Lng,
   });
 
   num p1Lat;

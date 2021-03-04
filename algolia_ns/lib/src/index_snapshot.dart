@@ -18,18 +18,18 @@ class AlgoliaIndexesSnapshot {
 }
 
 class AlgoliaIndexSnapshot {
-  Algolia algolia;
-  String name;
-  DateTime createdAt;
-  DateTime updatedAt;
-  int entries;
-  int dataSize;
-  int fileSize;
-  int lastBuildTimeS;
-  int numberOfPendingTask;
-  bool pendingTask;
+  late Algolia algolia;
+  String? name;
+  DateTime? createdAt;
+  DateTime? updatedAt;
+  int? entries;
+  int? dataSize;
+  int? fileSize;
+  int? lastBuildTimeS;
+  int? numberOfPendingTask;
+  bool? pendingTask;
 
-  AlgoliaIndexReference get ref => AlgoliaIndexReference._(algolia, name);
+  AlgoliaIndexReference get ref => AlgoliaIndexReference._(algolia, name!);
 
   AlgoliaIndexSnapshot.fromMap(algolia, Map<String, dynamic> map) {
     this.algolia = algolia;
