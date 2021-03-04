@@ -1,7 +1,4 @@
-import 'package:algolia/algolia.dart';
-import 'package:test/test.dart';
-
-void main() async {
+/*void main() async {
   ///
   /// Initiate Algolia in your project
   ///
@@ -271,4 +268,4 @@ class Application {
     applicationId: 'YOUR_APPLICATION_ID',
     apiKey: 'YOUR_API_KEY',
   );
-}
+}*/
