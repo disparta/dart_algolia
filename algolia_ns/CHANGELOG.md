@@ -1,5 +1,9 @@
-## [1.0.0.dev-0] - Migrated to Null-Safety.
-- Is now null-safe.
+## [1.0.0-null-safety.0+1] - Migrated to Null-Safety.
+- [Bug] Check the return values of all Futures. It may return an exception if an error was found.
+- [Bug] Fixed example app imports.
+
+## [1.0.0-null-safety.0] - Migrated to Null-Safety.
+- [Added] Support for Null-Safety.
 - Packages have been upgraded to null-safety versions.
 
 ## [0.1.7] - Bug fixes and added a new property.
